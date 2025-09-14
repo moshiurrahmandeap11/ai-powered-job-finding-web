@@ -162,10 +162,10 @@ Thank you for your interest in contributing! To maintain project quality, all co
 Thank you for helping improve Career Crafter!
 </details>
 
-<details>
-<summary><strong>Reporting Issues & Feature Requests</strong>
+---
+
+## Reporting Issues & Feature Requests
 
 - Found a bug? Open an issue with detailed steps to reproduce.
 - Have an idea for a new feature? Submit a feature request issue.
 - All submissions will be reviewed and approved by the core team.
-</details>
