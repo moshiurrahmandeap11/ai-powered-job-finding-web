@@ -138,3 +138,25 @@ Career Crafter aims to empower users to **accelerate their career journey** by m
     <img src="https://github.com/ZakariyaHussain.png" width="70" height="70" alt="ZakariyaHussain" style="border-radius:50%; object-fit:cover;" />
   </a>
 </p>
+
+<details>
+# Contributing to Career Crafter
+
+Thank you for your interest in contributing! To maintain project quality, all contributions require approval.
+
+## How to Contribute
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/YourFeature`.
+3. Make your changes and commit: `git commit -m 'Add some feature'`.
+4. Push to your branch: `git push origin feature/YourFeature`.
+5. Open a Pull Request (PR) and wait for review.
+
+## Approval Process
+
+- All PRs will be reviewed by the core team.
+- Only approved PRs will be merged into the main branch.
+- Ensure your PR follows coding standards and passes tests if any.
+
+Thank you for helping improve Career Crafter!
+</details>
