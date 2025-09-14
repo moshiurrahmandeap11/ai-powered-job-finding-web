@@ -2,7 +2,6 @@
 
 ![Banner](https://i.postimg.cc/5N3MCpQh/career-Crafter-Picsart-Ai-Image-Enhancer.jpg)
 
-<h3 align="left">🔗 Project Links</h3>
 
 <p align="left">
   <a href="https://ai-powered-job-finding-web.vercel.app/">
@@ -16,7 +15,7 @@
 ---
 
 <details>
-<summary><strong> Project Overview</strong> (click to expand)</summary>
+<summary><strong> Project Overview</strong></summary>
 <br>
 
 ## Project Overview
@@ -41,7 +40,7 @@ Career Crafter aims to empower users to **accelerate their career journey** by m
 ---
 
 <details>
-<summary><strong>Core Features</strong> (click to expand)</summary>
+<summary><strong>Core Features</strong></summary>
 <br>
 
 ## AI-Powered Features
