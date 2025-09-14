@@ -2,9 +2,9 @@
 
 ![Banner](https://i.postimg.cc/5N3MCpQh/career-Crafter-Picsart-Ai-Image-Enhancer.jpg)
 
-<h3 align="center">🔗 Project Links</h3>
+<h3 align="left">🔗 Project Links</h3>
 
-<p align="center">
+<p align="left">
   <a href="https://ai-powered-job-finding-web.vercel.app/">
     <img src="https://img.shields.io/badge/Live%20Site-000000?style=for-the-badge&logo=google-chrome&logoColor=white" />
   </a>
