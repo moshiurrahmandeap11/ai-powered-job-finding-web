@@ -140,7 +140,7 @@ Career Crafter aims to empower users to **accelerate their career journey** by m
 </p>
 
 <details>
-<summary><strong>🤝 Contributing to Career Crafter</strong></summary>
+<summary><strong> Contributing to Career Crafter</strong></summary>
 <br>
 
 Thank you for your interest in contributing! To maintain project quality, all contributions require approval.
@@ -160,4 +160,12 @@ Thank you for your interest in contributing! To maintain project quality, all co
 - Ensure your PR follows coding standards and passes tests if any.
 
 Thank you for helping improve Career Crafter!
+</details>
+
+<details>
+<summary><strong>Reporting Issues & Feature Requests</strong>
+
+- Found a bug? Open an issue with detailed steps to reproduce.
+- Have an idea for a new feature? Submit a feature request issue.
+- All submissions will be reviewed and approved by the core team.
 </details>
