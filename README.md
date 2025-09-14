@@ -169,3 +169,11 @@ Thank you for helping improve Career Crafter!
 - Found a bug? Open an issue with detailed steps to reproduce.
 - Have an idea for a new feature? Submit a feature request issue.
 - All submissions will be reviewed and approved by the core team.
+
+##  Project Badges
+
+![GitHub Repo stars](https://img.shields.io/github/stars/moshiurrahmandeap11/ai-powered-job-finding-web?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/moshiurrahmandeap11/ai-powered-job-finding-web?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/moshiurrahmandeap11/ai-powered-job-finding-web?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/moshiurrahmandeap11/ai-powered-job-finding-web?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/moshiurrahmandeap11/ai-powered-job-finding-web?style=for-the-badge)
