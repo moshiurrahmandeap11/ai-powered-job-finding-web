@@ -19,62 +19,69 @@
 <summary><strong>Core Features</strong> (click to expand)</summary>
 <br>
 
+## AI-Powered Features
 
-## AI-Powered Features  
-- **AI Job Matching:** Smart career recommendations based on user profile, skills, and interests  
-- **AI Resume Builder:** Auto-generate optimized resume & cover letters  
-- **AI Interview Assistant:** Mock interviews with instant feedback  
-- **AI Content Assistant:** Smart post suggestions, grammar fixes, trending topic ideas  
-- **Career Path Guidance:** AI suggests next skill/course to learn for growth  
+- **AI Job Matching:** Smart career recommendations based on user profile, skills, and interests
+- **AI Resume Builder:** Auto-generate optimized resume & cover letters
+- **AI Interview Assistant:** Mock interviews with instant feedback
+- **AI Content Assistant:** Smart post suggestions, grammar fixes, trending topic ideas
+- **Career Path Guidance:** AI suggests next skill/course to learn for growth
 
-### User & Profile  
-- User Authentication (Email, Social Login, JWT)  
-- Profile Creation & Customization (photo, banner, bio, skills, education, experience)  
-- Follow / Connect System  
-- Profile View Tracking  
+### User & Profile
 
-### Posts & Feed  
-- Create, Edit, Delete Posts (text, image, video, links)  
-- Like, Comment, Share  
-- Rich Media Preview (YouTube, articles, etc.)  
-- Personalized News Feed Algorithm  
+- User Authentication (Email, Social Login, JWT)
+- Profile Creation & Customization (photo, banner, bio, skills, education, experience)
+- Follow / Connect System
+- Profile View Tracking
 
-### Messaging & Communication  
-- Real-time Chat (one-to-one & group)  
-- End-to-End Encrypted Messaging  
-- Audio/Video Calls  
-- Typing Indicator, Online Status, Read Receipts  
+### Posts & Feed
 
-### Jobs & Opportunities  
-- Job Posting by Companies  
-- **AI-Powered Job Recommendations** (based on skills, interests, and activity)  
-- Easy Apply System with Resume/CV  
-- Job Filters (location, salary, remote/hybrid, etc.)  
+- Create, Edit, Delete Posts (text, image, video, links)
+- Like, Comment, Share
+- Rich Media Preview (YouTube, articles, etc.)
+- Personalized News Feed Algorithm
 
-### Learning & Growth  
-- LinkedIn Learning–style Course Section  
-- Course Recommendations (AI-based career growth suggestions)  
-- Progress Tracking & Certificates  
+### Messaging & Communication
 
-### Company Pages  
-- Create & Manage Company Profiles  
-- Showcase Products, Services, and Open Positions  
-- Follower System for Companies  
+- Real-time Chat (one-to-one & group)
+- End-to-End Encrypted Messaging
+- Audio/Video Calls
+- Typing Indicator, Online Status, Read Receipts
 
-### Notifications  
-- Real-time Notifications (connection requests, likes, comments, jobs, etc.)  
-- Email + In-app Notification System  
+### Jobs & Opportunities
+
+- Job Posting by Companies
+- **AI-Powered Job Recommendations** (based on skills, interests, and activity)
+- Easy Apply System with Resume/CV
+- Job Filters (location, salary, remote/hybrid, etc.)
+
+### Learning & Growth
+
+- LinkedIn Learning–style Course Section
+- Course Recommendations (AI-based career growth suggestions)
+- Progress Tracking & Certificates
+
+### Company Pages
+
+- Create & Manage Company Profiles
+- Showcase Products, Services, and Open Positions
+- Follower System for Companies
+
+### Notifications
+
+- Real-time Notifications (connection requests, likes, comments, jobs, etc.)
+- Email + In-app Notification System
 
 </details>
 
 ---
 
-##  Tech Stack
+## Tech Stack
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" />
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  <img src="https://img.shields.io/badge/JavaScript-61DAFB?style=for-the-badge&logo=react&logoColor=yellow" />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
   <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
