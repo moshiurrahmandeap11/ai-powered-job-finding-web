@@ -1,4 +1,4 @@
-# Career Crafter
+# Career Crafter By Syntax Six
 
 ![Banner](https://i.postimg.cc/5N3MCpQh/career-Crafter-Picsart-Ai-Image-Enhancer.jpg)
 
@@ -12,6 +12,31 @@
     <img src="https://img.shields.io/badge/Client%20Repo-0A66C2?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </p>
+
+---
+
+<details>
+<summary><strong> Project Overview</strong> (click to expand)</summary>
+<br>
+
+## Project Overview
+
+**Career Crafter** is an AI-powered professional networking platform inspired by LinkedIn. It combines social networking, career growth tools, and smart AI assistance to help users discover job opportunities, build resumes, enhance skills, and grow their professional network—all in one place. Users can create rich profiles, share posts, connect with other professionals, and get personalized AI recommendations for jobs, courses, and career paths.
+
+### Why We Built This
+
+In today’s competitive job market, finding relevant opportunities, building an optimized resume, and growing a professional network can be overwhelming. Career Crafter was built to solve these challenges by:  
+
+- Providing **AI-powered job recommendations** tailored to skills, interests, and user activity.  
+- Helping users **craft professional resumes and cover letters** effortlessly.  
+- Offering **career guidance** with suggestions for courses and skills to boost growth.  
+- Enabling seamless **networking and professional connections** with a LinkedIn-style feed and messaging system.  
+
+Career Crafter aims to empower users to **accelerate their career journey** by merging networking, learning, and AI-driven insights in a single platform.
+
+</details>
+
+
 
 ---
 
