@@ -90,3 +90,27 @@
   <img src="https://img.shields.io/badge/ShadcnUI-0D9488?style=for-the-badge&logo=daisyui&logoColor=white" />
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
 </p>
+
+
+##  Collaborators
+
+<p align="center" style="display:flex; flex-wrap: wrap; justify-content:center; gap:30px;">
+  <a href="https://github.com/moshiurrahmandeap11" target="_blank">
+    <img src="https://github.com/moshiurrahmandeap11.png" width="70" height="70" alt="moshiurrahmandeap11" style="border-radius:50%; object-fit:cover;" />
+  </a>
+  <a href="https://github.com/Imranfaraji" target="_blank">
+    <img src="https://github.com/Imranfaraji.png" width="70" height="70" alt="Imranfaraji" style="border-radius:50%; object-fit:cover;" />
+  </a>
+  <a href="https://github.com/malamin59" target="_blank">
+    <img src="https://github.com/malamin59.png" width="70" height="70" alt="malamin59" style="border-radius:50%; object-fit:cover;" />
+  </a>
+  <a href="https://github.com/noob-ubaid" target="_blank">
+    <img src="https://github.com/noob-ubaid.png" width="70" height="70" alt="noob-ubaid" style="border-radius:50%; object-fit:cover;" />
+  </a>
+  <a href="https://github.com/sharifulislamudoy" target="_blank">
+    <img src="https://github.com/sharifulislamudoy.png" width="70" height="70" alt="sharifulislamudoy" style="border-radius:50%; object-fit:cover;" />
+  </a>
+  <a href="https://github.com/ZakariyaHussain" target="_blank">
+    <img src="https://github.com/ZakariyaHussain.png" width="70" height="70" alt="ZakariyaHussain" style="border-radius:50%; object-fit:cover;" />
+  </a>
+</p>
