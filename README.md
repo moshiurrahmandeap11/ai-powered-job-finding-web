@@ -140,7 +140,8 @@ Career Crafter aims to empower users to **accelerate their career journey** by m
 </p>
 
 <details>
-# Contributing to Career Crafter
+<summary><strong>🤝 Contributing to Career Crafter</strong></summary>
+<br>
 
 Thank you for your interest in contributing! To maintain project quality, all contributions require approval.
 
