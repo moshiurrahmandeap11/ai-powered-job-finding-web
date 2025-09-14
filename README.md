@@ -176,7 +176,7 @@ Thank you for helping improve Career Crafter!
 Have questions or want to collaborate? Reach out via email:
 
 <p align="center">
-  <a href="mailto:moshiurrahmandeap11@gmail.com">
+  <a href="mailto:moshiurrahmandeap11@gmail.com?subject=Hello%20Career%20Crafter&body=Hi%20Team,">
     <img src="https://img.shields.io/badge/Email US-blue?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
   </a>
 </p>
