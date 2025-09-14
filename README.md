@@ -170,6 +170,18 @@ Thank you for helping improve Career Crafter!
 - Have an idea for a new feature? Submit a feature request issue.
 - All submissions will be reviewed and approved by the core team.
 
+
+##  Contact
+
+Have questions or want to collaborate? Reach out via email:
+
+<p align="center">
+  <a href="mailto:moshiurrahmandeap11@gmail.com">
+    <img src="https://img.shields.io/badge/Email US-blue?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
+  </a>
+</p>
+
+
 ##  Project Badges
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/moshiurrahmandeap11/ai-powered-job-finding-web?style=for-the-badge)
