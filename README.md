@@ -1,4 +1,4 @@
-# Career Crafter By Syntax Six
+# Career Crafter By Syntax Six ( V1 )
 
 ![Banner](https://i.postimg.cc/5N3MCpQh/career-Crafter-Picsart-Ai-Image-Enhancer.jpg)
 
