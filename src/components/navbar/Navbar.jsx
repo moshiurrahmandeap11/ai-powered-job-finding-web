@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react";
+import Image from "next/image";
 import {
   Home,
   Users,
@@ -13,9 +14,11 @@ import {
   Plus,
 } from "lucide-react";
 import Logo from "../sharedItems/logo/Logo";
+import { useAuth } from "../useAuth/useAuth";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
+  const { user, loading } = useAuth();
 
   const navItems = [
     { name: "home", label: "Home", icon: <Home size={22} /> },
@@ -29,12 +32,10 @@ const Navbar = () => {
     { name: "premium", label: "Premium", icon: <Star size={22} /> },
   ];
 
-  // Mobile-only items
   const mobileOnlyItems = [
     { name: "post", label: "Post", icon: <Plus size={22} /> },
   ];
 
-  // Create mobile bottom items with Post inserted between My Network and Jobs
   const mobileBottomItems = [
     navItems.find(item => item.name === "home"),
     navItems.find(item => item.name === "mynetwork"),
@@ -45,31 +46,37 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Mobile/Tablet Top Bar */}
+      {/* Mobile Top Bar */}
       <div className="md:hidden fixed top-0 w-full bg-secondary shadow-sm z-50 px-4 py-3">
         <div className="flex justify-between items-center">
-          {/* Profile - Top Left */}
+          {/* Profile */}
           <button
             onClick={() => setActive("profile")}
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "profile" ? "font-bold text-black" : ""
             }`}
           >
-            <div className={`transition-transform duration-300 ease-in-out ${active === "profile" ? "transform rotate-12" : ""}`}>
+            {user?.image ? (
+              <Image
+                src={user.image}
+                alt={user.name || "Profile"}
+                width={32}
+                height={32}
+                className="rounded-full"
+              />
+            ) : (
               <User size={24} />
-            </div>
+            )}
           </button>
-          
-          {/* Messages - Top Right */}
+
+          {/* Messages */}
           <button
             onClick={() => setActive("messages")}
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "messages" ? "font-bold text-black" : ""
             }`}
           >
-            <div className={`transition-transform duration-300 ease-in-out ${active === "messages" ? "transform rotate-12" : ""}`}>
-              <MessageSquare size={24} />
-            </div>
+            <MessageSquare size={24} />
           </button>
         </div>
       </div>
@@ -78,13 +85,10 @@ const Navbar = () => {
       <nav className="hidden md:block fixed top-0 w-full bg-secondary shadow-sm z-50">
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-center gap-6 md:gap-10 py-2">
-            <Logo></Logo>
+            <Logo />
             {navItems.map((item) =>
               item.name === "divider" ? (
-                <div
-                  key="divider"
-                  className="w-[1px] bg-gray-300 mx-4"
-                />
+                <div key="divider" className="w-[1px] bg-gray-300 mx-4" />
               ) : (
                 <button
                   key={item.name}
@@ -94,7 +98,17 @@ const Navbar = () => {
                   }`}
                 >
                   <div className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""}`}>
-                    {item.icon}
+                    {item.name === "profile" && user?.image ? (
+                      <Image
+                        src={user.image}
+                        alt={user.name || "Profile"}
+                        width={22}
+                        height={22}
+                        className="rounded-full"
+                      />
+                    ) : (
+                      item.icon
+                    )}
                   </div>
                   <span className="text-xs mt-1">{item.label}</span>
                 </button>
@@ -104,7 +118,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile/Tablet Bottom Navbar */}
+      {/* Mobile Bottom Navbar */}
       <nav className="md:hidden fixed bottom-0 w-full bg-white border-t shadow-sm z-50">
         <div className="flex justify-around py-2">
           {mobileBottomItems.map((item) => (
@@ -116,7 +130,17 @@ const Navbar = () => {
               }`}
             >
               <div className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""}`}>
-                {item.icon}
+                {item.name === "profile" && user?.image ? (
+                  <Image
+                    src={user.image}
+                    alt={user.name || "Profile"}
+                    width={22}
+                    height={22}
+                    className="rounded-full"
+                  />
+                ) : (
+                  item.icon
+                )}
               </div>
               <span className="text-xs mt-1">{item.label}</span>
             </button>
@@ -124,13 +148,9 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Spacer for mobile top bar */}
+      {/* Spacers */}
       <div className="md:hidden h-16"></div>
-      
-      {/* Spacer for desktop top bar */}
       <div className="hidden md:block h-16"></div>
-      
-      {/* Spacer for mobile bottom bar */}
       <div className="md:hidden h-16"></div>
     </>
   );

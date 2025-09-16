@@ -1,14 +1,22 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 export function useAuth() {
+  const { data: session, status } = useSession(); // NextAuth hook
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Example: check localStorage or call API
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) setUser(storedUser);
-  }, []);
+    if (status === "loading") return; 
+    if (status === "authenticated") {
+      setUser(session.user); // NextAuth user object
+    } else {
+      setUser(null); // logged out
+    }
+    setLoading(false);
+  }, [session, status]);
 
-  return { user };
+  return { user, loading };
 }
