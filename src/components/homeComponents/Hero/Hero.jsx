@@ -1,9 +1,23 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { X } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
 
 const Hero = ({ onClose }) => {
   const videoRef = useRef(null);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Close modal automatically if user is on /signin or /signup
+  useEffect(() => {
+    if (pathname === "/signin" || pathname === "/signup" || pathname === "/forget-password") {
+      onClose();
+    }
+  }, [pathname, onClose]);
+
+  const handleJoinClick = () => {
+    router.push("/signin");
+  };
 
   return (
     // Backdrop
@@ -30,7 +44,10 @@ const Hero = ({ onClose }) => {
               Connect with professionals, discover opportunities, and take your career to the next level.
             </p>
 
-            <button className="bg-primary button text-white font-semibold px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-md">
+            <button
+              onClick={handleJoinClick}
+              className="bg-primary button text-white font-semibold px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-md"
+            >
               Join for Free
             </button>
           </div>

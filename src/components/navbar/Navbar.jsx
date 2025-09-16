@@ -12,6 +12,7 @@ import {
   Star,
   Plus,
 } from "lucide-react";
+import Logo from "../sharedItems/logo/Logo";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
@@ -77,9 +78,7 @@ const Navbar = () => {
       <nav className="hidden md:block fixed top-0 w-full bg-secondary shadow-sm z-50">
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-center gap-6 md:gap-10 py-2">
-            <div>
-              <img className="w-10 h-10" src="https://i.ibb.co.com/20dV1H0y/logo.png" alt="" />
-            </div>
+            <Logo></Logo>
             {navItems.map((item) =>
               item.name === "divider" ? (
                 <div
