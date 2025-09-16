@@ -40,7 +40,7 @@ const Navbar = () => {
             <button
               key={item.name}
               onClick={() => setActive(item.name)}
-              className={`flex flex-col items-center text-gray-600 hover:text-black transition ${
+              className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                 active === item.name ? "font-bold text-black" : ""
               }`}
             >
