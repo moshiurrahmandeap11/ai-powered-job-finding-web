@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <>
       {/* Mobile/Tablet Top Bar */}
-      <div className="md:hidden fixed top-0 w-full bg-white border-b shadow-sm z-50 px-4 py-3">
+      <div className="md:hidden fixed top-0 w-full bg-secondary shadow-sm z-50 px-4 py-3">
         <div className="flex justify-between items-center">
           {/* Profile - Top Left */}
           <button
@@ -74,32 +74,34 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navbar */}
-      <nav className="hidden md:block fixed top-0 w-full bg-white border-b shadow-sm z-50">
-        <div className="flex justify-center gap-6 md:gap-10 py-2">
-          <div>
-            <img className="w-10 h-10" src="https://i.ibb.co.com/20dV1H0y/logo.png" alt="" />
+      <nav className="hidden md:block fixed top-0 w-full bg-secondary shadow-sm z-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex justify-center gap-6 md:gap-10 py-2">
+            <div>
+              <img className="w-10 h-10" src="https://i.ibb.co.com/20dV1H0y/logo.png" alt="" />
+            </div>
+            {navItems.map((item) =>
+              item.name === "divider" ? (
+                <div
+                  key="divider"
+                  className="w-[1px] bg-gray-300 mx-4"
+                />
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => setActive(item.name)}
+                  className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
+                    active === item.name ? "font-bold text-black" : ""
+                  }`}
+                >
+                  <div className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""}`}>
+                    {item.icon}
+                  </div>
+                  <span className="text-xs mt-1">{item.label}</span>
+                </button>
+              )
+            )}
           </div>
-          {navItems.map((item) =>
-            item.name === "divider" ? (
-              <div
-                key="divider"
-                className="w-[1px] bg-gray-300 mx-4"
-              />
-            ) : (
-              <button
-                key={item.name}
-                onClick={() => setActive(item.name)}
-                className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
-                  active === item.name ? "font-bold text-black" : ""
-                }`}
-              >
-                <div className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""}`}>
-                  {item.icon}
-                </div>
-                <span className="text-xs mt-1">{item.label}</span>
-              </button>
-            )
-          )}
         </div>
       </nav>
 
