@@ -5,7 +5,7 @@ import { useAuth } from "../useAuth/useAuth";
 import Hero from "../homeComponents/Hero/Hero";
 
 export default function ClientLayout({ children }) {
-  const { user } = useAuth(); // get current user
+  const { user } = useAuth(); 
   const [showHero, setShowHero] = useState(false);
 
   useEffect(() => {

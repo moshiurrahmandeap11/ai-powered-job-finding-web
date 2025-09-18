@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter
 import Image from "next/image";
 import {
   Home,
@@ -15,10 +16,12 @@ import {
 } from "lucide-react";
 import Logo from "../sharedItems/logo/Logo";
 import { useAuth } from "../useAuth/useAuth";
+import Loader from "../sharedItems/Loader/Loader";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
   const { user, loading } = useAuth();
+  const router = useRouter(); // Initialize useRouter
 
   const navItems = [
     { name: "home", label: "Home", icon: <Home size={22} /> },
@@ -37,12 +40,22 @@ const Navbar = () => {
   ];
 
   const mobileBottomItems = [
-    navItems.find(item => item.name === "home"),
-    navItems.find(item => item.name === "mynetwork"),
-    mobileOnlyItems.find(item => item.name === "post"),
-    navItems.find(item => item.name === "jobs"),
-    navItems.find(item => item.name === "notifications"),
+    navItems.find((item) => item.name === "home"),
+    navItems.find((item) => item.name === "mynetwork"),
+    mobileOnlyItems.find((item) => item.name === "post"),
+    navItems.find((item) => item.name === "jobs"),
+    navItems.find((item) => item.name === "notifications"),
   ].filter(Boolean);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  // Handle navigation for profile button
+  const handleProfileClick = () => {
+    setActive("profile");
+    router.push("/profile"); // Navigate to /profile
+  };
 
   return (
     <>
@@ -51,7 +64,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Profile */}
           <button
-            onClick={() => setActive("profile")}
+            onClick={handleProfileClick} // Use handleProfileClick
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "profile" ? "font-bold text-black" : ""
             }`}
@@ -92,12 +105,20 @@ const Navbar = () => {
               ) : (
                 <button
                   key={item.name}
-                  onClick={() => setActive(item.name)}
+                  onClick={
+                    item.name === "profile"
+                      ? handleProfileClick // Use handleProfileClick for profile
+                      : () => setActive(item.name)
+                  }
                   className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                     active === item.name ? "font-bold text-black" : ""
                   }`}
                 >
-                  <div className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""}`}>
+                  <div
+                    className={`transition-transform duration-300 ease-in-out ${
+                      active === item.name ? "transform rotate-12" : ""
+                    }`}
+                  >
                     {item.name === "profile" && user?.image ? (
                       <Image
                         src={user.image}
@@ -124,12 +145,20 @@ const Navbar = () => {
           {mobileBottomItems.map((item) => (
             <button
               key={item.name}
-              onClick={() => setActive(item.name)}
+              onClick={
+                item.name === "profile"
+                  ? handleProfileClick // Use handleProfileClick for profile
+                  : () => setActive(item.name)
+              }
               className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                 active === item.name ? "font-bold text-black" : ""
               }`}
             >
-              <div className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""}`}>
+              <div
+                className={`transition-transform duration-300 ease-in-out ${
+                  active === item.name ? "transform rotate-12" : ""
+                }`}
+              >
                 {item.name === "profile" && user?.image ? (
                   <Image
                     src={user.image}
