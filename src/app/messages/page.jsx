@@ -3,6 +3,7 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { BsThreeDots } from "react-icons/bs";
+import { FaImage } from "react-icons/fa6";
 const page = () => {
   const userList = [
     {
@@ -43,7 +44,7 @@ const page = () => {
       <Navbar />
       <div className="max-w-6xl mx-auto flex flex-col px-2 2xl:px-0 md:flex-row  items-center gap-6 md:gap-8">
         {/* left side  */}
-        <div className="w-full md:w-[70%] bg-white shadow-md  rounded-md">
+        <div className="w-full md:w-[70%] bg-white shadow-lg  rounded-md">
           {/* top text  */}
           <div className="flex items-center justify-between p-2 md:p-3 border-b border-gray-200 gap-2 md:gap-3">
             {/* left side  */}
@@ -129,8 +130,8 @@ const page = () => {
                 <span className="px-3 text-gray-500 text-sm">SEP 19</span>
                 <div className="flex-grow border-t border-gray-300"></div>
               </div>
-              <div>
-                 <div className="flex gap-3">
+              <div className="border-b  border-gray-200 h-[400px]">
+                <div className="flex gap-3">
                   <img
                     className="size-12 rounded-full bg-center object-cover"
                     src="https://images.unsplash.com/photo-1484515991647-c5760fcecfc7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
@@ -156,7 +157,11 @@ const page = () => {
                     </p>
                   </div>
                 </div>
-               
+              </div>
+              <div className="border-b  border-gray-200 pb-2">
+                <textarea placeholder="Write a message..." className="w-full p-2 h-[100px] outline-none bg-gray-100 rounded-md mt-3">
+
+                </textarea>
               </div>
             </div>
           </div>
