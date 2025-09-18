@@ -44,7 +44,7 @@ const page = () => {
   return (
     <section className="">
       <Navbar />
-      <div className="max-w-6xl mx-auto flex flex-col px-2 2xl:px-0 lg:flex-row  items-center gap-6 md:gap-8">
+      <div className="max-w-6xl mx-auto flex flex-col px-2 2xl:px-0 lg:flex-row   gap-6 md:gap-8">
         {/* left side  */}
         <div className="w-full md:w-[70%] bg-white shadow-lg  rounded-md">
           {/* top text  */}
@@ -226,7 +226,14 @@ const page = () => {
           </div>
         </div>
         {/* right side  */}
-        <div className="w-full md:w-[30%] bg-white shadow-md p-10 rounded-md"></div>
+        <div className="w-full md:w-[30%] bg-white shadow-md p-4 h-fit rounded-md">
+          <img
+            className="w-full rounded-md"
+            src="https://media.istockphoto.com/id/1095712110/photo/solar-panel-alternative-electricity-source-concept-of-sustainable-resources-and-this-is-a-new.webp?a=1&b=1&s=612x612&w=0&k=20&c=1ethMEXxVo3dkONl4RTBq_bUFfrrwWGdf4q2pyFC8hM="
+            alt=""
+          />
+          <p className="font-semibold mt-4 text-xl">Solar system in USA</p>
+        </div>
       </div>
     </section>
   );
