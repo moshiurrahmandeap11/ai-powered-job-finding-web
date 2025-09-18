@@ -1,3 +1,4 @@
+// src/app/api/auth/[...nextauth]/route.js
 import NextAuth from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
@@ -19,6 +20,24 @@ export const authOptions = {
     }),
   ],
   secret: process.env.AUTH_SECRET,
+  
+  // callback
+  callbacks: {
+    async signIn({ user, account, profile }) {
+      user.provider = account.provider; 
+      return true;
+    },
+    async session({ session, token }) {
+      session.user.provider = token.provider; 
+      return session;
+    },
+    async jwt({ token, account }) {
+      if (account) {
+        token.provider = account.provider; 
+      }
+      return token;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);
