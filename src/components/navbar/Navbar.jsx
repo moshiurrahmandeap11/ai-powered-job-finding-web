@@ -57,6 +57,12 @@ const Navbar = () => {
       router.push(route);
     }
 
+  // Handle navigation for messages button
+  const handleMessagesClick = () => {
+    setActive("messages");
+    router.push("/messages"); // Navigate to /messages
+  };
+
   return (
     <>
       {/* Mobile Top Bar */}
@@ -87,6 +93,7 @@ const Navbar = () => {
           {/* Messages */}
           <button
             onClick={() => handleNavClick("messages", "/messages")}
+
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "messages" ? "font-bold text-black" : ""
             }`}
@@ -174,9 +181,9 @@ const Navbar = () => {
       </nav>
 
       {/* Spacers */}
-      <div className="md:hidden h-16"></div>
-      <div className="hidden md:block h-16"></div>
-      <div className="md:hidden h-16"></div>
+      <div className="md:hidden h-8 md:h-20"></div>
+      <div className="hidden md:block h-8 md:h-20"></div>
+      <div className="md:hidden h-8 md:h-20"></div>
     </>
   );
 };
