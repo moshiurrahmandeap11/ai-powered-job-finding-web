@@ -10,15 +10,15 @@
   --color-secondary: #0a0a0a; /* purple-600 */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0aec;
     --foreground: #ededed;
 
-    --color-primary: #5AADEC;   /* blue-500 */
-    --color-secondary: #0a0a0a; /* purple-500 */
+    --color-primary: #5AADEC;  
+    --color-secondary: #0a0a0a;
   }
-}
+} */
 
 /* Tailwind theme mapping */
 @theme inline {

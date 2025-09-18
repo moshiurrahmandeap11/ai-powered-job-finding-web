@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
   Home,
@@ -21,22 +21,22 @@ import Loader from "../sharedItems/Loader/Loader";
 const Navbar = () => {
   const [active, setActive] = useState("home");
   const { user, loading } = useAuth();
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
   const navItems = [
-    { name: "home", label: "Home", icon: <Home size={22} /> },
-    { name: "mynetwork", label: "My Network", icon: <Users size={22} /> },
-    { name: "jobs", label: "Jobs", icon: <Briefcase size={22} /> },
-    { name: "messages", label: "Messages", icon: <MessageSquare size={22} /> },
-    { name: "notifications", label: "Notifications", icon: <Bell size={22} /> },
-    { name: "profile", label: "Profile", icon: <User size={22} /> },
-    { name: "divider", label: "", icon: <Square size={22} /> },
-    { name: "business", label: "Business", icon: <Building2 size={22} /> },
-    { name: "premium", label: "Premium", icon: <Star size={22} /> },
+    { name: "home", label: "Home", icon: <Home size={22} />, route: "/" },
+    { name: "mynetwork", label: "My Network", icon: <Users size={22} />, route: "/mynetwork" },
+    { name: "jobs", label: "Jobs", icon: <Briefcase size={22} />, route: "/jobs" },
+    { name: "messages", label: "Messages", icon: <MessageSquare size={22} />, route: "/messages" },
+    { name: "notifications", label: "Notifications", icon: <Bell size={22} />, route: "/notifications" },
+    { name: "profile", label: "Profile", icon: <User size={22} />, route: "/profile" },
+    { name: "divider", label: "", icon: <Square size={22} />, route: null },
+    { name: "business", label: "Business", icon: <Building2 size={22} />, route: "/business" },
+    { name: "premium", label: "Premium", icon: <Star size={22} />, route: "/premium" },
   ];
 
   const mobileOnlyItems = [
-    { name: "post", label: "Post", icon: <Plus size={22} /> },
+    { name: "post", label: "Post", icon: <Plus size={22} />, route: "/post" },
   ];
 
   const mobileBottomItems = [
@@ -51,11 +51,11 @@ const Navbar = () => {
     return <Loader />;
   }
 
-  // Handle navigation for profile button
-  const handleProfileClick = () => {
-    setActive("profile");
-    router.push("/profile"); // Navigate to /profile
-  };
+  const handleNavClick = (name, route) => {
+    setActive(name);
+    if (route) {
+      router.push(route);
+    }
 
   // Handle navigation for messages button
   const handleMessagesClick = () => {
@@ -70,7 +70,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Profile */}
           <button
-            onClick={handleProfileClick} // Use handleProfileClick
+            onClick={() => handleNavClick("profile", "/profile")}
+
+
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "profile" ? "font-bold text-black" : ""
             }`}
@@ -90,7 +92,8 @@ const Navbar = () => {
 
           {/* Messages */}
           <button
-            onClick={handleMessagesClick} // Updated to navigate
+            onClick={() => handleNavClick("messages", "/messages")}
+
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "messages" ? "font-bold text-black" : ""
             }`}
@@ -101,7 +104,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navbar */}
-      <nav className="hidden md:block fixed top-0 w-full bg-secondary shadow-sm z-50">
+      <nav className="hidden md:block fixed top-0 w-full bg-gray-50 shadow-sm border-b rounded-b-2xl z-50">
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-center gap-6 md:gap-10 py-2">
             <Logo />
@@ -111,13 +114,8 @@ const Navbar = () => {
               ) : (
                 <button
                   key={item.name}
-                  onClick={
-                    item.name === "profile"
-                      ? handleProfileClick // Use handleProfileClick for profile
-                      : item.name === "messages"
-                      ? handleMessagesClick // Use handleMessagesClick for messages
-                      : () => setActive(item.name)
-                  }
+                  onClick={() => handleNavClick(item.name, item.route)}
+
                   className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                     active === item.name ? "font-bold text-black" : ""
                   }`}
@@ -153,13 +151,8 @@ const Navbar = () => {
           {mobileBottomItems.map((item) => (
             <button
               key={item.name}
-              onClick={
-                item.name === "profile"
-                  ? handleProfileClick // Use handleProfileClick for profile
-                  : item.name === "messages"
-                  ? handleMessagesClick // Use handleMessagesClick for messages
-                  : () => setActive(item.name)
-              }
+              onClick={() => handleNavClick(item.name, item.route)}
+
               className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                 active === item.name ? "font-bold text-black" : ""
               }`}
