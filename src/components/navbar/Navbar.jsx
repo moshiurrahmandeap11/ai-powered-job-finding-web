@@ -56,7 +56,6 @@ const Navbar = () => {
     if (route) {
       router.push(route);
     }
-  };
 
   return (
     <>
@@ -66,6 +65,8 @@ const Navbar = () => {
           {/* Profile */}
           <button
             onClick={() => handleNavClick("profile", "/profile")}
+
+
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "profile" ? "font-bold text-black" : ""
             }`}
@@ -107,6 +108,7 @@ const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.name, item.route)}
+
                   className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                     active === item.name ? "font-bold text-black" : ""
                   }`}
@@ -143,6 +145,7 @@ const Navbar = () => {
             <button
               key={item.name}
               onClick={() => handleNavClick(item.name, item.route)}
+
               className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                 active === item.name ? "font-bold text-black" : ""
               }`}

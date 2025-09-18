@@ -14,8 +14,11 @@ import {
 } from "lucide-react"; // Import new icons
 import Logo from "@/components/sharedItems/logo/Logo"; // Make sure your Logo component path is correct
 import Loader from "@/components/sharedItems/Loader/Loader";
-import { handleFacebookLogin, handleGitHubLogin, handleGoogleLogin } from "@/lib/actions/auth";
-
+import {
+  handleFacebookLogin,
+  handleGitHubLogin,
+  handleGoogleLogin,
+} from "@/lib/actions/auth";
 
 // A simple SVG component for the Google icon as lucide-react doesn't have brand icons.
 const GoogleIcon = () => (
@@ -67,170 +70,181 @@ const SignIn = () => {
       >
         <ArrowLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
       </button>
-
-      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 sm:p-8 space-y-6">
-        {/* Header */}
-        <div className="text-center">
-          <div className="flex justify-center items-center mb-4">
-            <Logo />
-            <h1 className="text-xl font-semibold">Career Crafter</h1>
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            Sign in to your account
-          </h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-            Welcome back! Please enter your details.
-          </p>
-        </div>
-
-        {/* Social Logins */}
-        <div className="space-y-3">
-          <button onClick={() => handleGoogleLogin()} className="w-full cursor-pointer inline-flex items-center justify-center py-2.5 px-4 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
-            <GoogleIcon />
-            <span className="ml-3">Sign in with Google</span>
-          </button>
-          <button onClick={() => handleGitHubLogin()} className="w-full cursor-pointer inline-flex items-center justify-center py-2.5 px-4 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
-            <Github className="w-5 h-5" />
-            <span className="ml-3">Sign in with GitHub</span>
-          </button>
-          {/* NEW: Facebook Login Button */}
-          <button onClick={() => handleFacebookLogin()} className="w-full cursor-pointer inline-flex items-center justify-center py-2.5 px-4 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
-            <Facebook className="w-5 h-5 text-blue-600" />
-            <span className="ml-3">Sign in with Facebook</span>
-          </button>
-        </div>
-
-        {/* Divider */}
-        <div className="flex items-center">
-          <div className="flex-grow border-t border-gray-200 dark:border-gray-600"></div>
-          <span className="flex-shrink mx-4 text-sm text-gray-400 dark:text-gray-500">
-            OR
-          </span>
-          <div className="flex-grow border-t border-gray-200 dark:border-gray-600"></div>
-        </div>
-
-        {/* Form */}
-        <form className="space-y-5" onSubmit={handleSubmit}>
-          {/* ... (Email and Password inputs remain the same) ... */}
-          <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Your email
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <Mail className="w-5 h-5 text-gray-400" />
-              </div>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="name@company.com"
-                required
-              />
+      <div className="flex justify-center items-center">
+        <div className="hidden lg:block">SIr moshiur rahman</div>
+        <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 sm:p-8 space-y-6">
+          {/* Header */}
+          <div className="text-center">
+            <div className="flex justify-center items-center mb-4">
+              <Logo />
+              <h1 className="text-xl font-semibold">Career Crafter</h1>
             </div>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Sign in to your account
+            </h1>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              Welcome back! Please enter your details.
+            </p>
           </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+
+          {/* Social Logins */}
+          <div className="space-y-3">
+            <button
+              onClick={() => handleGoogleLogin()}
+              className="w-full cursor-pointer inline-flex items-center justify-center py-2.5 px-4 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
             >
-              Password
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <Lock className="w-5 h-5 text-gray-400" />
-              </div>
-              <input
-                type={passwordVisible ? "text" : "password"}
-                name="password"
-                id="password"
-                placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
-              />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
-                aria-label="Toggle password visibility"
+              <GoogleIcon />
+              <span className="ml-3">Sign in with Google</span>
+            </button>
+            <button
+              onClick={() => handleGitHubLogin()}
+              className="w-full cursor-pointer inline-flex items-center justify-center py-2.5 px-4 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+            >
+              <Github className="w-5 h-5" />
+              <span className="ml-3">Sign in with GitHub</span>
+            </button>
+            {/* NEW: Facebook Login Button */}
+            <button
+              onClick={() => handleFacebookLogin()}
+              className="w-full cursor-pointer inline-flex items-center justify-center py-2.5 px-4 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+            >
+              <Facebook className="w-5 h-5 text-blue-600" />
+              <span className="ml-3">Sign in with Facebook</span>
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center">
+            <div className="flex-grow border-t border-gray-200 dark:border-gray-600"></div>
+            <span className="flex-shrink mx-4 text-sm text-gray-400 dark:text-gray-500">
+              OR
+            </span>
+            <div className="flex-grow border-t border-gray-200 dark:border-gray-600"></div>
+          </div>
+
+          {/* Form */}
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            {/* ... (Email and Password inputs remain the same) ... */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                {passwordVisible ? (
-                  <EyeOff className="w-5 h-5 text-gray-500" />
-                ) : (
-                  <Eye className="w-5 h-5 text-gray-500" />
-                )}
-              </button>
-            </div>
-          </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-start">
-              <div className="flex items-center h-5">
+                Your email
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <Mail className="w-5 h-5 text-gray-400" />
+                </div>
                 <input
-                  id="remember"
-                  aria-describedby="remember"
-                  type="checkbox"
-                  className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="name@company.com"
+                  required
                 />
               </div>
-              <div className="ml-3 text-sm">
-                <label
-                  htmlFor="remember"
-                  className="text-gray-500 dark:text-gray-300"
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Password
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <Lock className="w-5 h-5 text-gray-400" />
+                </div>
+                <input
+                  type={passwordVisible ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  placeholder="••••••••"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                  aria-label="Toggle password visibility"
                 >
-                  Remember me
-                </label>
+                  {passwordVisible ? (
+                    <EyeOff className="w-5 h-5 text-gray-500" />
+                  ) : (
+                    <Eye className="w-5 h-5 text-gray-500" />
+                  )}
+                </button>
               </div>
             </div>
-            <Link
-              href="/forget-password"
-              className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Forgot password?
-            </Link>
-          </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-start">
+                <div className="flex items-center h-5">
+                  <input
+                    id="remember"
+                    aria-describedby="remember"
+                    type="checkbox"
+                    className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label
+                    htmlFor="remember"
+                    className="text-gray-500 dark:text-gray-300"
+                  >
+                    Remember me
+                  </label>
+                </div>
+              </div>
+              <Link
+                href="/forget-password"
+                className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
+              >
+                Forgot password?
+              </Link>
+            </div>
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300 disabled:bg-blue-400 disabled:cursor-not-allowed"
-          >
-            {isLoading ? <Loader></Loader> : "Sign in"}
-          </button>
-
-          <p className="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
-            Don’t have an account yet?{" "}
-            <Link
-              href="/signup"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300 disabled:bg-blue-400 disabled:cursor-not-allowed"
             >
-              Sign up
-            </Link>
-          </p>
-        </form>
+              {isLoading ? <Loader></Loader> : "Sign in"}
+            </button>
 
-        {/* UPDATED & HIGHLIGHTED: Footer Links */}
-        <div className="text-center space-y-2 pt-2">
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            By signing in, you agree to our
-          </p>
-          <div className="flex items-center justify-center gap-4">
-            <Link
-              href="/terms-and-conditions"
-              className="font-medium text-xs text-blue-600 dark:text-blue-500 bg-blue-50 dark:bg-gray-700 px-3 py-1 rounded-full hover:underline"
-            >
-              Terms & Conditions
-            </Link>
+            <p className="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
+              Don’t have an account yet?{" "}
+              <Link
+                href="/signup"
+                className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+              >
+                Sign up
+              </Link>
+            </p>
+          </form>
 
-            <Link
-              href="/privacy-policy"
-              className="font-medium text-xs text-blue-600 dark:text-blue-500 bg-blue-50 dark:bg-gray-700 px-3 py-1 rounded-full hover:underline"
-            >
-              Privacy Policy
-            </Link>
+          {/* UPDATED & HIGHLIGHTED: Footer Links */}
+          <div className="text-center space-y-2 pt-2">
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              By signing in, you agree to our
+            </p>
+            <div className="flex items-center justify-center gap-4">
+              <Link
+                href="/terms-and-conditions"
+                className="font-medium text-xs text-blue-600 dark:text-blue-500 bg-blue-50 dark:bg-gray-700 px-3 py-1 rounded-full hover:underline"
+              >
+                Terms & Conditions
+              </Link>
+
+              <Link
+                href="/privacy-policy"
+                className="font-medium text-xs text-blue-600 dark:text-blue-500 bg-blue-50 dark:bg-gray-700 px-3 py-1 rounded-full hover:underline"
+              >
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>
