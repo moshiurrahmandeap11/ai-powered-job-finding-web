@@ -57,6 +57,12 @@ const Navbar = () => {
     router.push("/profile"); // Navigate to /profile
   };
 
+  // Handle navigation for messages button
+  const handleMessagesClick = () => {
+    setActive("messages");
+    router.push("/messages"); // Navigate to /messages
+  };
+
   return (
     <>
       {/* Mobile Top Bar */}
@@ -84,7 +90,7 @@ const Navbar = () => {
 
           {/* Messages */}
           <button
-            onClick={() => setActive("messages")}
+            onClick={handleMessagesClick} // Updated to navigate
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "messages" ? "font-bold text-black" : ""
             }`}
@@ -108,6 +114,8 @@ const Navbar = () => {
                   onClick={
                     item.name === "profile"
                       ? handleProfileClick // Use handleProfileClick for profile
+                      : item.name === "messages"
+                      ? handleMessagesClick // Use handleMessagesClick for messages
                       : () => setActive(item.name)
                   }
                   className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
@@ -148,6 +156,8 @@ const Navbar = () => {
               onClick={
                 item.name === "profile"
                   ? handleProfileClick // Use handleProfileClick for profile
+                  : item.name === "messages"
+                  ? handleMessagesClick // Use handleMessagesClick for messages
                   : () => setActive(item.name)
               }
               className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
@@ -178,9 +188,9 @@ const Navbar = () => {
       </nav>
 
       {/* Spacers */}
-      <div className="md:hidden h-16"></div>
-      <div className="hidden md:block h-16"></div>
-      <div className="md:hidden h-16"></div>
+      <div className="md:hidden h-8 md:h-20"></div>
+      <div className="hidden md:block h-8 md:h-20"></div>
+      <div className="md:hidden h-8 md:h-20"></div>
     </>
   );
 };
