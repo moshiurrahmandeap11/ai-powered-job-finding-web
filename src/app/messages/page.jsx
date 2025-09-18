@@ -24,7 +24,7 @@ const page = () => {
     {
       id: 3,
       name: "Moshiur Rahman",
-      date: "Sep 17",
+      date: "Sep 19",
       text: "No worries",
       image:
         "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFufGVufDB8fDB8fHww",
@@ -109,7 +109,56 @@ const page = () => {
                 </div>
               ))}
             </div>
-            <div className="w-[55%]">fsdf</div>
+            <div className="w-[55%] p-4">
+              <div className="flex items-center gap-4">
+                <img
+                  className="size-14 rounded-full bg-center object-cover"
+                  src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                  alt=""
+                />
+                <div>
+                  <p className="font-medium">Zakariya Hussain</p>
+                  <p className="text-sm text-black/70">
+                    MERN Stack Web Developer | React.js | Next.js | Node.js |
+                    MongoDB{" "}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center my-3">
+                <div className="flex-grow border-t border-gray-300"></div>
+                <span className="px-3 text-gray-500 text-sm">SEP 19</span>
+                <div className="flex-grow border-t border-gray-300"></div>
+              </div>
+              <div>
+                 <div className="flex gap-3">
+                  <img
+                    className="size-12 rounded-full bg-center object-cover"
+                    src="https://images.unsplash.com/photo-1484515991647-c5760fcecfc7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt=""
+                  />
+                  <div>
+                    <p className=" font-medium">Tanvir Ahmed · 8:28 AM</p>
+                    <p className="text-sm text-gray-800 mt-1">
+                      Hello.Have done the navbar?
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3 mt-5">
+                  <img
+                    className="size-12 rounded-full bg-center object-cover"
+                    src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt=""
+                  />
+                  <div>
+                    <p className=" font-medium">Zakariya Hussain · 9:18 AM</p>
+                    <p className="text-sm text-gray-800 mt-1">
+                      I will do it later
+                    </p>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
           </div>
         </div>
         {/* right side  */}
