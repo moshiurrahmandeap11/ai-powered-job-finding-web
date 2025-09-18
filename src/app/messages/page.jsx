@@ -44,7 +44,7 @@ const page = () => {
   return (
     <section className="">
       <Navbar />
-      <div className="max-w-6xl mx-auto flex flex-col px-2 2xl:px-0 md:flex-row  items-center gap-6 md:gap-8">
+      <div className="max-w-6xl mx-auto flex flex-col px-2 2xl:px-0 lg:flex-row  items-center gap-6 md:gap-8">
         {/* left side  */}
         <div className="w-full md:w-[70%] bg-white shadow-lg  rounded-md">
           {/* top text  */}
@@ -72,7 +72,7 @@ const page = () => {
             </div>
           </div>
           {/* for large device */}
-          <div className="flex ">
+          <div className="md:flex hidden ">
             <div className="w-[45%] border-r border-gray-200">
               <div className="flex items-center justify-between bg-gray-100 border-b border-l-6 border-l-green-700 border-gray-200 gap-3 p-4">
                 <div className="flex gap-3">
@@ -142,7 +142,7 @@ const page = () => {
                   <div>
                     <p className=" font-medium">Tanvir Ahmed · 8:28 AM</p>
                     <p className="text-sm text-gray-800 mt-1">
-                      Hello.Have done the navbar?
+                      Hello, Have you done the navbar section?
                     </p>
                   </div>
                 </div>
@@ -168,10 +168,10 @@ const page = () => {
               </div>
               <div className="flex items-center justify-between gap-4 mt-3">
                 <div className="flex items-center gap-3">
-                  <FaImage size={21}/>
-                  <FaLink size={21}/>
+                  <FaImage size={21} />
+                  <FaLink size={21} />
                   <p className="font-medium text-sm">GIF</p>
-                  <MdOutlineEmojiEmotions size={21}/>
+                  <MdOutlineEmojiEmotions size={21} />
                 </div>
                 <div className="flex items-center gap-2">
                   <p className="bg-gray-300 px-3 py-1 text-sm rounded-full">
@@ -183,6 +183,46 @@ const page = () => {
                 </div>
               </div>
             </div>
+          </div>
+          {/* for small screen */}
+          <div className="flex w-full flex-col gap-4 md:hidden">
+            <div className="flex items-center justify-between bg-gray-100 border-b border-l-6 border-l-green-700 border-gray-200 gap-3 p-4">
+              <div className="flex gap-3">
+                <img
+                  className="size-16 rounded-full bg-center object-cover"
+                  src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                  alt=""
+                />
+                <div>
+                  <p className="font-medium">Zakariya Hussain</p>
+                  <p className="text-wrap">I will do it later</p>
+                </div>
+              </div>
+              <div>
+                <p>Sep 19</p>
+              </div>
+            </div>
+            {userList.map((user) => (
+              <div
+                className="flex items-center justify-between border-b border-gray-200 gap-3 p-4"
+                key={user.id}
+              >
+                <div className="flex gap-3">
+                  <img
+                    className="size-16 rounded-full bg-center object-cover"
+                    src={user.image}
+                    alt=""
+                  />
+                  <div>
+                    <p className="font-medium">{user.name}</p>
+                    <p className="text-wrap">{user.text}</p>
+                  </div>
+                </div>
+                <div>
+                  <p>{user.date}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         {/* right side  */}
