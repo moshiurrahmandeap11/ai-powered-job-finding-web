@@ -4,6 +4,8 @@ import { FaSearch } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { BsThreeDots } from "react-icons/bs";
 import { FaImage } from "react-icons/fa6";
+import { FaLink } from "react-icons/fa6";
+import { MdOutlineEmojiEmotions } from "react-icons/md";
 const page = () => {
   const userList = [
     {
@@ -159,9 +161,26 @@ const page = () => {
                 </div>
               </div>
               <div className="border-b  border-gray-200 pb-2">
-                <textarea placeholder="Write a message..." className="w-full p-2 h-[100px] outline-none bg-gray-100 rounded-md mt-3">
-
-                </textarea>
+                <textarea
+                  placeholder="Write a message..."
+                  className="w-full p-2 h-[100px] outline-none bg-gray-100 rounded-md mt-3"
+                ></textarea>
+              </div>
+              <div className="flex items-center justify-between gap-4 mt-3">
+                <div className="flex items-center gap-3">
+                  <FaImage size={21}/>
+                  <FaLink size={21}/>
+                  <p className="font-medium text-sm">GIF</p>
+                  <MdOutlineEmojiEmotions size={21}/>
+                </div>
+                <div className="flex items-center gap-2">
+                  <p className="bg-gray-300 px-3 py-1 text-sm rounded-full">
+                    send
+                  </p>
+                  <div className="hover:bg-gray-600 hover:text-white p-1 transition duration-300 cursor-pointer rounded-full">
+                    <BsThreeDots size={21} />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
