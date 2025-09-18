@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
   Home,
@@ -15,34 +16,47 @@ import {
 } from "lucide-react";
 import Logo from "../sharedItems/logo/Logo";
 import { useAuth } from "../useAuth/useAuth";
+import Loader from "../sharedItems/Loader/Loader";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
   const { user, loading } = useAuth();
+  const router = useRouter();
 
   const navItems = [
-    { name: "home", label: "Home", icon: <Home size={22} /> },
-    { name: "mynetwork", label: "My Network", icon: <Users size={22} /> },
-    { name: "jobs", label: "Jobs", icon: <Briefcase size={22} /> },
-    { name: "messages", label: "Messages", icon: <MessageSquare size={22} /> },
-    { name: "notifications", label: "Notifications", icon: <Bell size={22} /> },
-    { name: "profile", label: "Profile", icon: <User size={22} /> },
-    { name: "divider", label: "", icon: <Square size={22} /> },
-    { name: "business", label: "Business", icon: <Building2 size={22} /> },
-    { name: "premium", label: "Premium", icon: <Star size={22} /> },
+    { name: "home", label: "Home", icon: <Home size={22} />, route: "/" },
+    { name: "mynetwork", label: "My Network", icon: <Users size={22} />, route: "/mynetwork" },
+    { name: "jobs", label: "Jobs", icon: <Briefcase size={22} />, route: "/jobs" },
+    { name: "messages", label: "Messages", icon: <MessageSquare size={22} />, route: "/messages" },
+    { name: "notifications", label: "Notifications", icon: <Bell size={22} />, route: "/notifications" },
+    { name: "profile", label: "Profile", icon: <User size={22} />, route: "/profile" },
+    { name: "divider", label: "", icon: <Square size={22} />, route: null },
+    { name: "business", label: "Business", icon: <Building2 size={22} />, route: "/business" },
+    { name: "premium", label: "Premium", icon: <Star size={22} />, route: "/premium" },
   ];
 
   const mobileOnlyItems = [
-    { name: "post", label: "Post", icon: <Plus size={22} /> },
+    { name: "post", label: "Post", icon: <Plus size={22} />, route: "/post" },
   ];
 
   const mobileBottomItems = [
-    navItems.find(item => item.name === "home"),
-    navItems.find(item => item.name === "mynetwork"),
-    mobileOnlyItems.find(item => item.name === "post"),
-    navItems.find(item => item.name === "jobs"),
-    navItems.find(item => item.name === "notifications"),
+    navItems.find((item) => item.name === "home"),
+    navItems.find((item) => item.name === "mynetwork"),
+    mobileOnlyItems.find((item) => item.name === "post"),
+    navItems.find((item) => item.name === "jobs"),
+    navItems.find((item) => item.name === "notifications"),
   ].filter(Boolean);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  const handleNavClick = (name, route) => {
+    setActive(name);
+    if (route) {
+      router.push(route);
+    }
+  };
 
   return (
     <>
@@ -51,7 +65,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Profile */}
           <button
-            onClick={() => setActive("profile")}
+            onClick={() => handleNavClick("profile", "/profile")}
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "profile" ? "font-bold text-black" : ""
             }`}
@@ -71,7 +85,7 @@ const Navbar = () => {
 
           {/* Messages */}
           <button
-            onClick={() => setActive("messages")}
+            onClick={() => handleNavClick("messages", "/messages")}
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "messages" ? "font-bold text-black" : ""
             }`}
@@ -82,7 +96,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navbar */}
-      <nav className="hidden md:block fixed top-0 w-full bg-secondary shadow-sm z-50">
+      <nav className="hidden md:block fixed top-0 w-full bg-gray-50 shadow-sm border-b rounded-b-2xl z-50">
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-center gap-6 md:gap-10 py-2">
             <Logo />
@@ -92,12 +106,16 @@ const Navbar = () => {
               ) : (
                 <button
                   key={item.name}
-                  onClick={() => setActive(item.name)}
+                  onClick={() => handleNavClick(item.name, item.route)}
                   className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                     active === item.name ? "font-bold text-black" : ""
                   }`}
                 >
-                  <div className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""}`}>
+                  <div
+                    className={`transition-transform duration-300 ease-in-out ${
+                      active === item.name ? "transform rotate-12" : ""
+                    }`}
+                  >
                     {item.name === "profile" && user?.image ? (
                       <Image
                         src={user.image}
@@ -124,12 +142,16 @@ const Navbar = () => {
           {mobileBottomItems.map((item) => (
             <button
               key={item.name}
-              onClick={() => setActive(item.name)}
+              onClick={() => handleNavClick(item.name, item.route)}
               className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                 active === item.name ? "font-bold text-black" : ""
               }`}
             >
-              <div className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""}`}>
+              <div
+                className={`transition-transform duration-300 ease-in-out ${
+                  active === item.name ? "transform rotate-12" : ""
+                }`}
+              >
                 {item.name === "profile" && user?.image ? (
                   <Image
                     src={user.image}
