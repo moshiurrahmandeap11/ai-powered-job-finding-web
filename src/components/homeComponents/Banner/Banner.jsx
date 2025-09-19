@@ -63,7 +63,7 @@ const Banner = () => {
   const [activeTab, setActiveTab] = useState('jobs');
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-16 px-6 rounded-md">
+    <section className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-16 px-6 ">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       
