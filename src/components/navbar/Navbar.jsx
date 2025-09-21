@@ -277,16 +277,16 @@ const Navbar = () => {
     navItems.find((item) => item.name === "notifications"),
   ].filter(Boolean);
 
-  if (loading) {
-    return <Loader />;
-  }
-
   const handleNavClick = (name, route) => {
     setActive(name);
     if (route) {
       router.push(route);
     }
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -296,9 +296,14 @@ const Navbar = () => {
           {/* Profile */}
           <button
             onClick={() => handleNavClick("profile", "/profile")}
+<<<<<<< HEAD
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "profile" ? "font-bold text-black" : ""
             }`}
+=======
+            className={`flex items-center text-gray-600 hover:text-black transition ${active === "profile" ? "font-bold text-black" : ""
+              }`}
+>>>>>>> d7cd20d5a28b48d5e8c7a71f4cbf09c63f13be86
           >
             {user?.image ? (
               <Image
@@ -316,9 +321,14 @@ const Navbar = () => {
           {/* Messages */}
           <button
             onClick={() => handleNavClick("messages", "/messages")}
+<<<<<<< HEAD
             className={`flex items-center text-gray-600 hover:text-black transition ${
               active === "messages" ? "font-bold text-black" : ""
             }`}
+=======
+            className={`flex items-center text-gray-600 hover:text-black transition ${active === "messages" ? "font-bold text-black" : ""
+              }`}
+>>>>>>> d7cd20d5a28b48d5e8c7a71f4cbf09c63f13be86
           >
             <MessageSquare size={24} />
           </button>
@@ -337,14 +347,18 @@ const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.name, item.route)}
+<<<<<<< HEAD
                   className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                     active === item.name ? "font-bold text-black" : ""
                   }`}
+=======
+                  className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${active === item.name ? "font-bold text-black" : ""
+                    }`}
+>>>>>>> d7cd20d5a28b48d5e8c7a71f4cbf09c63f13be86
                 >
                   <div
-                    className={`transition-transform duration-300 ease-in-out ${
-                      active === item.name ? "transform rotate-12" : ""
-                    }`}
+                    className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""
+                      }`}
                   >
                     {item.name === "profile" && user?.image ? (
                       <Image
@@ -367,20 +381,24 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Bottom Navbar */}
-      <nav className="md:hidden fixed bottom-0 w-full bg-white border-t shadow-sm z-50">
+      <nav className="md:hidden fixed bottom-0 w-full bg-white border-t rounded-t-2xl shadow-sm z-50">
         <div className="flex justify-around py-2">
           {mobileBottomItems.map((item) => (
             <button
               key={item.name}
               onClick={() => handleNavClick(item.name, item.route)}
+<<<<<<< HEAD
               className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
                 active === item.name ? "font-bold text-black" : ""
               }`}
+=======
+              className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${active === item.name ? "font-bold text-black" : ""
+                }`}
+>>>>>>> d7cd20d5a28b48d5e8c7a71f4cbf09c63f13be86
             >
               <div
-                className={`transition-transform duration-300 ease-in-out ${
-                  active === item.name ? "transform rotate-12" : ""
-                }`}
+                className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""
+                  }`}
               >
                 {item.name === "profile" && user?.image ? (
                   <Image

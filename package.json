@@ -12,7 +12,9 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.3.2",
+    "@tailwindcss/vite": "^4.1.13",
     "axios": "^1.12.2",
+    "framer-motion": "^12.23.15",
     "lucide-react": "^0.544.0",
     "next": "15.5.2",
     "next-auth": "^4.24.11",
@@ -25,6 +27,6 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4.1.13"
   }
 }
