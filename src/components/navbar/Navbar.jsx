@@ -66,8 +66,9 @@ const Navbar = () => {
           {/* Profile */}
           <button
             onClick={() => handleNavClick("profile", "/profile")}
-            className={`flex items-center text-gray-600 hover:text-black transition ${active === "profile" ? "font-bold text-black" : ""
-              }`}
+            className={`flex items-center text-gray-600 hover:text-black transition ${
+              active === "profile" ? "font-bold text-black" : ""
+            }`}
           >
             {user?.image ? (
               <Image
@@ -85,8 +86,9 @@ const Navbar = () => {
           {/* Messages */}
           <button
             onClick={() => handleNavClick("messages", "/messages")}
-            className={`flex items-center text-gray-600 hover:text-black transition ${active === "messages" ? "font-bold text-black" : ""
-              }`}
+            className={`flex items-center text-gray-600 hover:text-black transition ${
+              active === "messages" ? "font-bold text-black" : ""
+            }`}
           >
             <MessageSquare size={24} />
           </button>
@@ -105,12 +107,14 @@ const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.name, item.route)}
-                  className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${active === item.name ? "font-bold text-black" : ""
-                    }`}
+                  className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
+                    active === item.name ? "font-bold text-black" : ""
+                  }`}
                 >
                   <div
-                    className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""
-                      }`}
+                    className={`transition-transform duration-300 ease-in-out ${
+                      active === item.name ? "transform rotate-12" : ""
+                    }`}
                   >
                     {item.name === "profile" && user?.image ? (
                       <Image
@@ -139,12 +143,14 @@ const Navbar = () => {
             <button
               key={item.name}
               onClick={() => handleNavClick(item.name, item.route)}
-              className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${active === item.name ? "font-bold text-black" : ""
-                }`}
+              className={`flex flex-col font-pop items-center text-gray-600 hover:text-black transition ${
+                active === item.name ? "font-bold text-black" : ""
+              }`}
             >
               <div
-                className={`transition-transform duration-300 ease-in-out ${active === item.name ? "transform rotate-12" : ""
-                  }`}
+                className={`transition-transform duration-300 ease-in-out ${
+                  active === item.name ? "transform rotate-12" : ""
+                }`}
               >
                 {item.name === "profile" && user?.image ? (
                   <Image
