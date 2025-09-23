@@ -1,5 +1,14 @@
 import Navbar from '@/components/navbar/Navbar';
 import React from 'react';
+import {
+    Users,
+    Contact,
+    UsersRound,
+    Calendar,
+    FileText,
+    Newspaper,
+    Hash,
+} from "lucide-react";
 
 const Page = () => {
     return (
@@ -8,16 +17,40 @@ const Page = () => {
 
             <div className="flex gap-4 p-4">
                 {/* Left Sidebar */}
-                <div className="w-1/4 border rounded-lg bg-white shadow-sm p-4">
-                    <h3 className="text-lg font-semibold mb-3">Manage my network</h3>
-                    <ul className="space-y-2 text-sm">
-                        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Connections</li>
-                        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Contacts</li>
-                        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Groups</li>
-                        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Events</li>
-                        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Pages</li>
-                        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Newsletters</li>
-                        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Hashtags</li>
+                <div className="w-1/4 border rounded-lg bg-white shadow-sm">
+                    <div className='w-full border-b'>
+                        <h3 className="text-lg font-semibold p-4">Manage my network</h3>
+                    </div>
+                    
+                    <ul className="space-y-2 text-sm px-4">
+                        <li className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded cursor-pointer">
+                            <Users className="w-4 h-4 text-gray-600" />
+                            Connections
+                        </li>
+                        <li className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded cursor-pointer">
+                            <Contact className="w-4 h-4 text-gray-600" />
+                            Contacts
+                        </li>
+                        <li className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded cursor-pointer">
+                            <UsersRound className="w-4 h-4 text-gray-600" />
+                            Groups
+                        </li>
+                        <li className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded cursor-pointer">
+                            <Calendar className="w-4 h-4 text-gray-600" />
+                            Events
+                        </li>
+                        <li className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded cursor-pointer">
+                            <FileText className="w-4 h-4 text-gray-600" />
+                            Pages
+                        </li>
+                        <li className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded cursor-pointer">
+                            <Newspaper className="w-4 h-4 text-gray-600" />
+                            Newsletters
+                        </li>
+                        <li className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded cursor-pointer">
+                            <Hash className="w-4 h-4 text-gray-600" />
+                            Hashtags
+                        </li>
                     </ul>
                 </div>
 
