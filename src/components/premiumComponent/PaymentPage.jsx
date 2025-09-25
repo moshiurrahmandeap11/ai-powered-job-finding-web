@@ -7,7 +7,6 @@ import {
     Shield, Lock, Zap, Star, Globe, BadgeCheck
 } from "lucide-react";
 import Image from "next/image";
-import Logo from "../sharedItems/logo/Logo";
 
 // Animation variants
 const containerVariants = {
@@ -33,8 +32,8 @@ const itemVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
 };
 
-const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess }) => {
-    const [email, setEmail] = useState("");
+const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess, user }) => {
+    const [email, setEmail] = useState(user?.email || "");
     const [selectedMethod, setSelectedMethod] = useState("");
     const [isProcessing, setIsProcessing] = useState(false);
     const [isHovered, setIsHovered] = useState(null);
@@ -284,7 +283,7 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess 
                                 variants={itemVariants}
                                 transition={{ delay: 0.1 }}
                             >
-                                <label className=" text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                                <label className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
                                     <span>Email Address</span>
                                     <span className="text-red-500">*</span>
                                 </label>
@@ -295,7 +294,7 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess 
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="your@email.com"
                                         className="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
-                                        required
+                                        readOnly
                                     />
                                     {email && (
                                         <Check size={16} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-500" />
@@ -324,14 +323,14 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess 
                                                 onMouseEnter={() => setIsHovered(method.id)}
                                                 onMouseLeave={() => setIsHovered(null)}
                                                 className={`p-3 border-2 rounded-xl cursor-pointer transition-all duration-200 group relative overflow-hidden ${selectedMethod === method.id
-                                                        ? `border-blue-500 bg-gradient-to-r ${method.color} text-white shadow-lg`
-                                                        : 'border-gray-200 hover:border-gray-300 bg-white hover:shadow-md'
+                                                    ? `border-blue-500 bg-gradient-to-r ${method.color} text-white shadow-lg`
+                                                    : 'border-gray-200 hover:border-gray-300 bg-white hover:shadow-md'
                                                     }`}
                                             >
                                                 {method.badge && (
                                                     <span className={`absolute -top-2 -right-2 text-xs font-bold px-2 py-1 rounded-full ${selectedMethod === method.id
-                                                            ? 'bg-white text-blue-600'
-                                                            : 'bg-blue-500 text-white'
+                                                        ? 'bg-white text-blue-600'
+                                                        : 'bg-blue-500 text-white'
                                                         }`}>
                                                         {method.badge}
                                                     </span>
@@ -339,8 +338,8 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess 
 
                                                 <div className="flex items-center">
                                                     <div className={`p-2 rounded-lg mr-3 transition-all duration-200 ${selectedMethod === method.id
-                                                            ? 'bg-white/20'
-                                                            : 'bg-gray-100 group-hover:bg-gray-200'
+                                                        ? 'bg-white/20'
+                                                        : 'bg-gray-100 group-hover:bg-gray-200'
                                                         }`}>
                                                         <method.icon
                                                             size={20}

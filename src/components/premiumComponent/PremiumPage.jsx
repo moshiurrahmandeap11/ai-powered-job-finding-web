@@ -7,8 +7,10 @@ import Navbar from "../navbar/Navbar";
 import PaymentModal from "./PaymentModal";
 import PaymentPage from "./PaymentPage";
 import FAQ from "./Faq";
+import { useAuth } from "../useAuth/useAuth";
 
 const PremiumPage = () => {
+  const { user } = useAuth();
   const [selectedPlan, setSelectedPlan] = useState("monthly");
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showPaymentPage, setShowPaymentPage] = useState(false);
@@ -115,6 +117,7 @@ const PremiumPage = () => {
   if (showPaymentPage) {
     return (
       <PaymentPage
+        user={user}
         selectedPackage={selectedPackage}
         billingPeriod={billingPeriod}
         onBack={() => setShowPaymentPage(false)}
@@ -152,17 +155,15 @@ const PremiumPage = () => {
         <div className="flex justify-center mb-12">
           <div className="bg-gray-200 rounded-lg p-1 flex">
             <button
-              className={`px-4 py-2 rounded-md text-sm font-medium ${
-                selectedPlan === "monthly" ? "bg-white text-gray-900 shadow" : "text-gray-600"
-              }`}
+              className={`px-4 py-2 rounded-md text-sm font-medium ${selectedPlan === "monthly" ? "bg-white text-gray-900 shadow" : "text-gray-600"
+                }`}
               onClick={() => setSelectedPlan("monthly")}
             >
               Monthly
             </button>
             <button
-              className={`px-4 py-2 rounded-md text-sm font-medium ${
-                selectedPlan === "annual" ? "bg-white text-gray-900 shadow" : "text-gray-600"
-              }`}
+              className={`px-4 py-2 rounded-md text-sm font-medium ${selectedPlan === "annual" ? "bg-white text-gray-900 shadow" : "text-gray-600"
+                }`}
               onClick={() => setSelectedPlan("annual")}
             >
               Annual (Save 20%)
@@ -188,9 +189,8 @@ const PremiumPage = () => {
                 key={pkg.name} // Unique key for each card
                 custom={index} // Pass index for staggered animation
                 variants={cardVariants}
-                className={`relative rounded-2xl overflow-hidden ${
-                  pkg.popular ? "ring-2 ring-blue-500 ring-offset-2" : "border border-gray-200"
-                } shadow-lg`}
+                className={`relative rounded-2xl overflow-hidden ${pkg.popular ? "ring-2 ring-blue-500 ring-offset-2" : "border border-gray-200"
+                  } shadow-lg`}
               >
                 {pkg.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center shadow-md">
@@ -217,13 +217,12 @@ const PremiumPage = () => {
 
                   <button
                     onClick={() => handleUpgradeClick(pkg.name)}
-                    className={`w-full py-3 rounded-lg font-medium flex items-center justify-center ${
-                      pkg.name === "Free"
-                        ? "bg-gray-200 text-gray-700"
-                        : pkg.name === "Standard"
+                    className={`w-full py-3 rounded-lg font-medium flex items-center justify-center ${pkg.name === "Free"
+                      ? "bg-gray-200 text-gray-700"
+                      : pkg.name === "Standard"
                         ? "bg-blue-500 text-white hover:bg-blue-600"
                         : "bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700"
-                    } transition-colors`}
+                      } transition-colors`}
                   >
                     {pkg.cta}
                     {pkg.name !== "Free" && <ArrowRight size={16} className="ml-2" />}
@@ -236,16 +235,14 @@ const PremiumPage = () => {
                       <li key={featureIndex} className="flex items-start">
                         <Check
                           size={18}
-                          className={`mt-0.5 mr-3 flex-shrink-0 ${
-                            feature.unlimited ? "text-green-500" : "text-gray-400"
-                          }`}
+                          className={`mt-0.5 mr-3 flex-shrink-0 ${feature.unlimited ? "text-green-500" : "text-gray-400"
+                            }`}
                         />
                         <div>
                           <span className="font-medium text-gray-900">{feature.name}</span>
                           <span
-                            className={`block text-sm ${
-                              feature.unlimited ? "text-green-600 font-medium" : "text-gray-600"
-                            }`}
+                            className={`block text-sm ${feature.unlimited ? "text-green-600 font-medium" : "text-gray-600"
+                              }`}
                           >
                             {feature.value}
                           </span>
