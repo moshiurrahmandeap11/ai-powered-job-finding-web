@@ -37,6 +37,14 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess,
     const [selectedMethod, setSelectedMethod] = useState("");
     const [isProcessing, setIsProcessing] = useState(false);
     const [isHovered, setIsHovered] = useState(null);
+    
+    // Payment method specific states
+    const [cardNumber, setCardNumber] = useState("");
+    const [expiryDate, setExpiryDate] = useState("");
+    const [cvv, setCvv] = useState("");
+    const [cardHolder, setCardHolder] = useState("");
+    const [bankAccount, setBankAccount] = useState("");
+    const [mobileNumber, setMobileNumber] = useState("");
 
     const paymentMethods = [
         {
@@ -102,6 +110,22 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess,
             return;
         }
 
+        // Validate method-specific fields
+        if (selectedMethod === "card" && (!cardNumber || !expiryDate || !cvv || !cardHolder)) {
+            alert("Please fill in all card details");
+            return;
+        }
+
+        if (selectedMethod === "bank" && !bankAccount) {
+            alert("Please enter your bank account number");
+            return;
+        }
+
+        if (["bkash", "nagad", "rocket"].includes(selectedMethod) && !mobileNumber) {
+            alert("Please enter your mobile number");
+            return;
+        }
+
         setIsProcessing(true);
         try {
             const paymentData = {
@@ -110,6 +134,9 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess,
                 amount: prices[billingPeriod][selectedPackage],
                 email,
                 paymentMethod: selectedMethod,
+                cardNumber: selectedMethod === "card" ? cardNumber : undefined,
+                bankAccount: selectedMethod === "bank" ? bankAccount : undefined,
+                mobileNumber: ["bkash", "nagad", "rocket"].includes(selectedMethod) ? mobileNumber : undefined,
             };
             console.log("Processing payment:", paymentData);
             setTimeout(() => {
@@ -121,6 +148,27 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess,
             setIsProcessing(false);
             alert("Payment failed. Please try again.");
         }
+    };
+
+    const formatCardNumber = (value) => {
+        const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+        const matches = v.match(/\d{4,16}/g);
+        const match = matches && matches[0] || '';
+        const parts = [];
+        
+        for (let i = 0; i < match.length; i += 4) {
+            parts.push(match.substring(i, i + 4));
+        }
+        
+        return parts.length ? parts.join(' ') : value;
+    };
+
+    const formatExpiryDate = (value) => {
+        const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+        if (v.length >= 2) {
+            return v.substring(0, 2) + (v.length > 2 ? '/' + v.substring(2, 4) : '');
+        }
+        return v;
     };
 
     const selectedMethodData = paymentMethods.find(method => method.id === selectedMethod);
@@ -369,6 +417,117 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess,
                                     ))}
                                 </div>
                             </motion.div>
+
+                            {/* Payment Method Specific Input Fields */}
+                            <AnimatePresence>
+                                {selectedMethod === "card" && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="mb-6 space-y-4"
+                                    >
+                                        <h3 className="font-semibold text-gray-700 mb-3">Card Details</h3>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div className="md:col-span-2">
+                                                <label className="text-sm text-gray-600 mb-2 block">Card Number</label>
+                                                <input
+                                                    type="text"
+                                                    value={cardNumber}
+                                                    onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
+                                                    placeholder="1234 5678 9012 3456"
+                                                    maxLength={19}
+                                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-gray-600 mb-2 block">Expiry Date</label>
+                                                <input
+                                                    type="text"
+                                                    value={expiryDate}
+                                                    onChange={(e) => setExpiryDate(formatExpiryDate(e.target.value))}
+                                                    placeholder="MM/YY"
+                                                    maxLength={5}
+                                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-gray-600 mb-2 block">CVV</label>
+                                                <input
+                                                    type="text"
+                                                    value={cvv}
+                                                    onChange={(e) => setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))}
+                                                    placeholder="123"
+                                                    maxLength={4}
+                                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                                />
+                                            </div>
+                                            <div className="md:col-span-2">
+                                                <label className="text-sm text-gray-600 mb-2 block">Card Holder Name</label>
+                                                <input
+                                                    type="text"
+                                                    value={cardHolder}
+                                                    onChange={(e) => setCardHolder(e.target.value)}
+                                                    placeholder="John Doe"
+                                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                                />
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {selectedMethod === "bank" && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="mb-6"
+                                    >
+                                        <h3 className="font-semibold text-gray-700 mb-3">Bank Account Details</h3>
+                                        <div>
+                                            <label className="text-sm text-gray-600 mb-2 block">Bank Account Number</label>
+                                            <input
+                                                type="text"
+                                                value={bankAccount}
+                                                onChange={(e) => setBankAccount(e.target.value.replace(/\D/g, ''))}
+                                                placeholder="Enter your bank account number"
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                            />
+                                            <p className="text-xs text-gray-500 mt-2">We support all major Bangladeshi banks</p>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {["bkash", "nagad", "rocket"].includes(selectedMethod) && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="mb-6"
+                                    >
+                                        <h3 className="font-semibold text-gray-700 mb-3">{selectedMethodData?.name} Number</h3>
+                                        <div>
+                                            <label className="text-sm text-gray-600 mb-2 block">Mobile Number</label>
+                                            <div className="relative">
+                                                <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 flex items-center">
+                                                    <span className="mr-1">+880</span>
+                                                    <div className="w-px h-4 bg-gray-300 mx-2"></div>
+                                                </div>
+                                                <input
+                                                    type="text"
+                                                    value={mobileNumber}
+                                                    onChange={(e) => setMobileNumber(e.target.value.replace(/\D/g, '').slice(0, 10))}
+                                                    placeholder="1XXXXXXXXX"
+                                                    className="w-full px-4 py-3 pl-20 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                                />
+                                            </div>
+                                            <p className="text-xs text-gray-500 mt-2">
+                                                Enter your {selectedMethodData?.name} registered mobile number
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
 
                             {/* Selected Method Info */}
                             <AnimatePresence>
