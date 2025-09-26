@@ -79,12 +79,22 @@ const Page = () => {
       console.log(error);
     }
   };
-
+  const handleAcceptConnect = async (id, name) => {
+    const data = {
+      recipientEmail: user.email,
+      accept: "accepted",
+    };
+    try {
+      await axiosInstance.post(`/v1/connect/invitation/${id}`, data);
+      toast.success(`You are now connected with ${name}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleManageClick = () => {
     fetchInvitations();
     setShowModal(true);
   };
-
   if (loading) return <Loader />;
 
   return (
@@ -139,9 +149,9 @@ const Page = () => {
         </div>
 
         {/* right side */}
-        <div className="bg-white shadow-lg rounded-md w-full md:w-[70%] p-4">
-          <div className="font-medium flex items-center justify-between text-lg bg-gray-100 p-2 rounded-md">
-            <p>People you may know based on your recent activity</p>
+        <div className="bg-white shadow-lg rounded-md  w-full md:w-[70%] p-4">
+          <div className="font-medium text-black flex items-center justify-between text-lg bg-gray-100 p-2 rounded-md">
+            <p>Check your connection request</p>
             <button onClick={handleManageClick}>Manage</button>
           </div>
 
@@ -156,7 +166,7 @@ const Page = () => {
                   src={suggest?.profilePicture}
                   alt={suggest.id}
                 />
-                <h4 className="font-medium text-lg">{suggest?.name}</h4>
+                <h4 className="font-medium ">{suggest?.name}</h4>
                 <p className=" text-sm text-gray-600 line-clamp-2 h-[40px] ">
                   {suggest.tags.join(" | ")}
                 </p>
@@ -191,7 +201,7 @@ const Page = () => {
             >
               <button
                 onClick={() => setShowModal(false)}
-                className="absolute top-2 cursor-pointer right-2 text-xl font-bold"
+                className="absolute top-3 cursor-pointer right-3 text-xl font-bold"
               >
                 <RxCross1 />
               </button>
@@ -205,26 +215,29 @@ const Page = () => {
                   {invitations.map((inv) => (
                     <li
                       key={inv.id}
-                      className="flex items-center justify-between border p-2 rounded-md"
+                      className=" border border-gray-300 p-3 rounded-md"
                     >
-                      <div className="flex items-center gap-4">
-                        <img src={inv.user.profilePicture} alt="" />
-                        <div>
-                          <p className="font-medium">{inv.user.name}</p>
-                          <p className="text-sm text-gray-500">
-                            {inv.user.jobTitle}
-                          </p>
-                          <p className="text-sm text-gray-400">
-                            {inv.user.email}
-                          </p>
+                      <div className="flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-3">
+                          <img
+                            className="size-12 rounded-full bg-center object-cover"
+                            src={inv.user.profilePicture}
+                            alt=""
+                          />
+                          <p className="font-medium text-lg">{inv.user.name}</p>
                         </div>
+                        <button
+                          onClick={() =>
+                            handleAcceptConnect(inv.id, inv.user.name)
+                          }
+                          className="bg-blue-500 text-white px-4 duration-300 cursor-pointer py-2 rounded-md hover:bg-blue-600"
+                        >
+                          Connect
+                        </button>
                       </div>
-                      <button
-                        onClick={() => handleConnect(inv.user.email)}
-                        className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600"
-                      >
-                        Connect
-                      </button>
+                      <p className="text-sm mt-2 text-gray-500">
+                        {inv.user.tags.join(" | ")}
+                      </p>
                     </li>
                   ))}
                 </ul>
