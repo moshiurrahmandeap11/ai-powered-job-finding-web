@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div>
       <nav><Navbar></Navbar></nav>
-      <div className="min-h-screen md:w-7xl md:mx-auto md:px-0 w-full px-2">
+      <div className="min-h-screen md:w-7xl md:mx-auto md:px-0 w-full ">
       <Banner></Banner>
       <FeaturesSection></FeaturesSection>
       <RoadmapSection></RoadmapSection>

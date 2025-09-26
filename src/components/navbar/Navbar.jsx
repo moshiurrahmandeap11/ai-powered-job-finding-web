@@ -61,7 +61,7 @@ const Navbar = () => {
   return (
     <>
       {/* Mobile Top Bar */}
-      <div className="md:hidden fixed top-0 w-full bg-secondary shadow-sm z-50 px-4 py-3">
+      <div className="md:hidden fixed top-0 w-full bg-secondary shadow-sm z-50 px-4 py-3 overflow-hidden">
         <div className="flex justify-between items-center">
           {/* Profile */}
           <button
