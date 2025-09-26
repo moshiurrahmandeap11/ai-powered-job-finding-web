@@ -603,4 +603,5 @@ const PaymentPage = ({ selectedPackage, billingPeriod, onBack, onPaymentSuccess,
     );
 };
 
+
 export default PaymentPage;
