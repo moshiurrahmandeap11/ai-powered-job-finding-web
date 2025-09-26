@@ -172,7 +172,7 @@ export default function Page() {
   return (
     <section className="">
       <Navbar />
-      <div className="max-w-6xl mx-auto flex flex-col px-2 2xl:px-0 lg:flex-row gap-6 md:gap-8">
+      <div className="max-w-6xl mx-auto flex flex-col px-2 mb-14 md:mb-0 2xl:px-0 lg:flex-row gap-6 md:gap-8">
         {/* Large screen left */}
         <div className="w-full md:w-[70%] bg-white shadow-lg rounded-md">
           {/* Top search */}
