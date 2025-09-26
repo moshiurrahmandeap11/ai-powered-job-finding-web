@@ -3,7 +3,7 @@ import "./globals.css";
 import ClientLayout from "@/components/ClientLayout/ClientLayout";
 import ClientProvider from "./api/ClientProvider/ClientProvider";
 import ClientOnly from "./ClientOnly/ClientOnly";
-
+import  { Toaster } from 'react-hot-toast';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
         <ClientProvider>
           <ClientOnly>
-            <ClientLayout>{children}</ClientLayout>
+            <ClientLayout>{children} <Toaster /></ClientLayout>
           </ClientOnly>
         </ClientProvider>
       </body>

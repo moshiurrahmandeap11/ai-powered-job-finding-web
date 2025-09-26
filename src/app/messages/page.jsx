@@ -12,7 +12,7 @@ import { useAuth } from "@/components/useAuth/useAuth";
 import { RxCross1 } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 
-const socket = io("https://career-crafter-server.vercel.app");
+const socket = io("https://career-crafter-server.vercel.app/v1");
 
 export default function Page() {
   const { user } = useAuth();
@@ -22,7 +22,6 @@ export default function Page() {
   const [chatHistories, setChatHistories] = useState({});
   const [showModal, setShowModal] = useState(false);
   const scrollRef = useRef();
-
   // Fetch all users
   useEffect(() => {
     if (!user) return;
